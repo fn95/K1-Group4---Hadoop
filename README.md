@@ -18,7 +18,7 @@ Welcome to the GitHub repository for Installing Hadoop on Ubuntu 20.04! This gui
 - Rafi' Noval Hady		        	2106703153
 - Muhammad Zaki Nur Said Hanan	2106733856
 
-## Installation Steps (on Virtual Machine Box) {#section-2}
+## Installation Steps (on Virtual Machine Box)
 > This is a tutorial on installation and set up Hadoop on Ubuntu 20.04 through Virtual Machine Box
 
 ### Set Up VirtualBox
