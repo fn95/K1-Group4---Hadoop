@@ -9,7 +9,7 @@ Welcome to the GitHub repository for Installing Hadoop on Ubuntu 20.04! This gui
 - [What you can do with Hadoop](#section-3)
 - [What is Wordcount with Hadoop?](#section-4)
 - [License](#section-5)
-- [References](#section-6)
+- [References](#section-6) 
 
 ## This Github 
 **Group 4:**
