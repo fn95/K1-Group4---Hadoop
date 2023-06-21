@@ -1,4 +1,11 @@
-# Installing Haddop on Ubuntu 20.04
+# Installing Hadoop on Ubuntu 20.04
+
+## This Github
+> **Group 4 Members:**
+> Zulfikar Hadzalic			        2106636224
+> Fayza Nirwasita			          2106635700
+> Rafi' Noval Hady		        	2106703153
+> Muhammad Zaki Nur Said Hanan	2106733856
 
 ## Installation Steps (on Virtual Machine Box)
 > This is a tutorial on installation and set up Hadoop on Ubuntu 20.04 through Virtual Machine Box
@@ -62,5 +69,94 @@ dirname $(dirname $(readlink -f $(which java)))
      ```
      $ source ~/.bashrc
      ```
-     -  It is recommended to go on *pseudo-distributed mode* for setting up Hadoop as a new user, which allows each daemon to run as a single java process. Using command `ls`, you can find set of configuration files on hadoop folder:
-6. 
+     -  Go to access the **hadoop-env.sh** file, then uncomment the `$HADOOP_HOME` variable by removing **#** sign. 
+     ```
+     sudo nano $HADOOP_HOME/etc/hadoop/hadoop-env.sh
+     ```
+    > After uncommment, place the path of location of Java Installation, by copying the path from the directory files. Following line is example of finding Java path, then use the ooutput to find OpenJDK directory. path of Java Installation:
+     ```
+     which javac
+     readlink -f /usr/bin/javac
+     export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+     ```
+6. **Edit core-site.xml File**
+   ```
+   sudo nano $HADOOP_HOME/etc/hadoop/core-site.xml
+   ```
+   > In **core-site.xml** file, go into the file in text editor and override the configuration values for temporary directory, then add HDFS URL to replace. Place the following lines (below <! -- .... --> )
+   ```
+   <configuration>
+   <property>
+                 <name>fs.defaultFS</name>
+                 <value>hdfs://localhost:9000</value>
+         </property>
+   </configuration>
+   ```
+7. **Edit  hdfs-site.xml File**
+   ```
+   sudo nano $HADOOP_HOME/etc/hadoop/hdfs-site.xml
+   ```
+   >  adjust the NameNode and DataNode directories to your custom locations (below <! -- .... --> )
+   ```
+    <configuration>
+        <property>
+                <name>dfs.replication</name>
+                <value>1</value>
+        </property>
+        <property>
+                <name>dfs.name.dir</name>
+                <value>file:///home/hadoop/hadoopdata/hdfs/namenode</value>
+        </property>
+        <property>
+                <name>dfs.data.dir</name>
+                <value>file:///home/hadoop/hadoopdata/hdfs/datanode</value>
+        </property>
+   </configuration>
+   ```
+
+8. **Edit mapred-site.xml File**
+   ```
+   sudo nano $HADOOP_HOME/etc/hadoop/mapred-site.xml
+   ```
+   >  achange the default MapReduce framework name value to yarn (below <! -- .... --> )
+   ```
+   <configuration>
+       <property>
+              <name>mapreduce.framework.name</name>
+              < value>yarn</value>
+       </property>
+   </configuration>
+   ```
+9. **Edit yarn-site.xml File**
+    ```
+    sudo nano $HADOOP_HOME/etc/hadoop/yarn-site.xml
+    ```
+   >  Append the following configuration to the file (below <! -- .... --> )
+   ```
+   <configuration>
+        <property>
+                <name>yarn.nodemanager.aux-services</name>
+                <value>mapreduce_shuffle</value>
+        </property>
+   </configuration>
+   ```  
+10. **Format HDFS NameNode**
+```
+hdfs namenode -format
+```
+11. **Start Hadoop Cluster**
+    > It should be containing all the HDFS and YARN daemons (around six lines) after input command `jps`
+```
+hdfs namenode -format
+$ start-yarn.sh
+$ jps
+```
+12. **Access Hadoop UI from Browser**
+    - port **9870** is a port number that access Hadoop UI
+    - port **9864** is a port number that access individual DataNodes directly from the browser
+    - port **8088** is a port number that accessYARN Resource Manager
+      ```
+      http://localhost:9870
+      http://localhost:9864
+      http://localhost:9864
+      ```
