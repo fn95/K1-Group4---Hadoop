@@ -217,7 +217,7 @@ By leveraging Hadoop's parallel processing capabilities, WordCount can efficient
 ## License
 - Hadoop: Apache Hadoop is released under the Apache License 2.0, which is an open-source license. 
   > License: [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0) 
-- Orace: Oracle VM VirtualBox is released under the GNU General Public License (GPL) version 2. 
+- Oracle: Oracle VM VirtualBox is released under the GNU General Public License (GPL) version 2. 
   > License: [GNU General Public License (GPL) Version 2](https://www.virtualbox.org/wiki/GPL)
 
 
