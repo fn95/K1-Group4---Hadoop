@@ -8,6 +8,8 @@ Welcome to the GitHub repository for Installing Hadoop on Ubuntu 20.04! This gui
 - [Installation Steps](#section-2)
 - [What you can do with Hadoop](#section-3)
 - [What is Wordcount with Hadoop?](#section-4)
+- [License](#section-5)
+- [References](#section-6)
 
 ## This Github 
 **Group 4:**
@@ -194,13 +196,17 @@ WordCount is a classic example of a simple but powerful application that showcas
 
 Here's how WordCount works with Hadoop:
 
-1. **Map Phase:** In the Map phase, the input data is divided into chunks, and each chunk is processed independently by multiple map tasks running in parallel across the cluster. Each map task takes a portion of the input data and emits key-value pairs, where the key represents a word, and the value is typically set to 1.
+1. **Map Phase:**
+   > In the Map phase, the input data is divided into chunks, and each chunk is processed independently by multiple map tasks running in parallel across the cluster. Each map task takes a portion of the input data and emits key-value pairs, where the key represents a word, and the value is typically set to 1.
 
-2. **Shuffle and Sort:** The output of the map tasks is then shuffled and sorted by Hadoop. This step ensures that all occurrences of the same word are grouped together and sorted by key.
+2. **Shuffle and Sort:**
+   > The output of the map tasks is then shuffled and sorted by Hadoop. This step ensures that all occurrences of the same word are grouped together and sorted by key.
 
-3. **Reduce Phase:** In the Reduce phase, the sorted output from the map tasks is passed to the reduce tasks. Each reduce task takes a group of key-value pairs and performs an aggregation operation, usually summing the values for each unique key (word).
+3. **Reduce Phase:**
+   > In the Reduce phase, the sorted output from the map tasks is passed to the reduce tasks. Each reduce task takes a group of key-value pairs and performs an aggregation operation, usually summing the values for each unique key (word).
 
-4. **Final Output:** The final output of the WordCount program is a list of words along with their respective counts.
+4. **Final Output:**
+   > The final output of the WordCount program is a list of words along with their respective counts.
 
 Example of Wordcount application using Haddop:
 
