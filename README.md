@@ -1,4 +1,6 @@
 # Installing Hadoop on Ubuntu 20.04
+![Alt Text](https://github.com/fn95/K1-Group4---Hadoop/blob/main/images/hadoop-logo.png)
+
 Welcome to the GitHub repository for Installing Hadoop on Ubuntu 20.04! This guide aims to provide you with a step-by-step walkthrough to set up Hadoop, the open-source framework for distributed storage and processing of large datasets, on your Ubuntu 20.04 machine. If you're a beginner user, this repository will help you get started with Hadoop and unleash the power of distributed computing. Let's dive in and get Hadoop up and running on your Ubuntu 20.04 system.
 
 ## Table of Contents
@@ -199,5 +201,9 @@ Here's how WordCount works with Hadoop:
 3. **Reduce Phase:** In the Reduce phase, the sorted output from the map tasks is passed to the reduce tasks. Each reduce task takes a group of key-value pairs and performs an aggregation operation, usually summing the values for each unique key (word).
 
 4. **Final Output:** The final output of the WordCount program is a list of words along with their respective counts.
+
+Example of Wordcount application using Haddop:
+
+![Alt Text](https://github.com/fn95/K1-Group4---Hadoop/blob/main/images/Hadoop_100mb.jpg)
 
 By leveraging Hadoop's parallel processing capabilities, WordCount can efficiently process large volumes of text data and provide insights into the frequency of words within the dataset. It is a fundamental example that demonstrates how Hadoop's MapReduce paradigm can be used for distributed data processing tasks.
