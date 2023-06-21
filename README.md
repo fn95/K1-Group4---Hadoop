@@ -1,21 +1,31 @@
 # Installing Hadoop on Ubuntu 20.04
+Welcome to the GitHub repository for Installing Hadoop on Ubuntu 20.04! This guide aims to provide you with a step-by-step walkthrough to set up Hadoop, the open-source framework for distributed storage and processing of large datasets, on your Ubuntu 20.04 machine. If you're a beginner user, this repository will help you get started with Hadoop and unleash the power of distributed computing. Let's dive in and get Hadoop up and running on your Ubuntu 20.04 system.
 
-## This Github
-> **Group 4 Members:**
-> Zulfikar Hadzalic			        2106636224
-> Fayza Nirwasita			          2106635700
-> Rafi' Noval Hady		        	2106703153
-> Muhammad Zaki Nur Said Hanan	2106733856
+## Table of Contents
+- [This Github](#section-1)
+- [Installation Steps](#section-2)
+- [What you can do with Hadoop](#section-3)
+- [What is Wordcount with Hadoop?](#section-4)
 
-## Installation Steps (on Virtual Machine Box)
+## This Github 
+**Group 4:**
+- Zulfikar Hadzalic			        2106636224
+- Fayza Nirwasita			          2106635700
+- Rafi' Noval Hady		        	2106703153
+- Muhammad Zaki Nur Said Hanan	2106733856
+
+## Installation Steps (on Virtual Machine Box) {#section-2}
 > This is a tutorial on installation and set up Hadoop on Ubuntu 20.04 through Virtual Machine Box
+
+### Set Up VirtualBox
 > Before going through, first, we set up for Ubuntu 20.04 (Focal Fossa) on your VM Box:
 + Download and Install [Oracle VM VirtualBox](https://www.oracle.com/id/virtualization/technologies/vm/downloads/virtualbox-downloads.html) or other VM Box files.
 + Download the installation media  : you can search the version on [Ubuntu website](https://releases.ubuntu.com/focal/) or other sources to download **.iso** file
 + On your Virtual Machine Box, to create a Virtual Machine, click on **New** button on VirtualBox. Specify name, type, and version for Virtual Machine and click on **Next**
 + Specify the settings from base memory, Virtual Hard Disk, then load Ubuntu ISO file to the Virtual Machine.
 + Start Installing Ubuntu. For detail tutorial, you can refer to [here](https://www.ktexperts.com/how-to-install-ubuntu-20-04-1-lts-on-windows-using-virtualbox/)
-  
+
+### Set Up and Installation of Hadoop
 > Now we are going to set up installation of Hadoop
 1. **Create user for Hadoop environment**
    > Open terminal `Ctrl + alt + T` and type following command
@@ -154,9 +164,40 @@ $ jps
 12. **Access Hadoop UI from Browser**
     - port **9870** is a port number that access Hadoop UI
     - port **9864** is a port number that access individual DataNodes directly from the browser
-    - port **8088** is a port number that accessYARN Resource Manager
+    - port **8088** is a port number that access YARN Resource Manager
       ```
       http://localhost:9870
       http://localhost:9864
       http://localhost:9864
       ```
+
+## What you can do with Hadoop
+With Hadoop, you can unleash the power of distributed computing to handle large-scale data processing and storage efficiently. Here are some key capabilities and use cases of Hadoop:
+
+- ***Distributed Data Storage***:
+  > Hadoop provides a distributed file system called Hadoop Distributed File System (HDFS), which allows you to store and manage vast amounts of data across a cluster of commodity hardware.
+- ***Data Processing***:
+  > Hadoop enables parallel processing of data using a programming model called MapReduce. It allows us to break down complex computations into smaller tasks that can be executed in parallel across multiple nodes in the cluster, significantly improving processing speed.
+- ***Scalability***:
+  > Hadoop's distributed architecture allows you to scale our data storage and processing capabilities by adding more machines to the cluster, making it suitable for handling massive datasets.
+- ***Fault Tolerance***:
+  > Hadoop is designed to be fault-tolerant. It automatically handles node failures by redistributing data and reassigning tasks to other healthy nodes, ensuring the uninterrupted operation of out data processing jobs.
+- ***Data Integration***:
+  > Hadoop can integrate with various data sources and formats, allowing us to ingest data from different systems and process it in a unified manner. It supports structured, semi-structured, and unstructured data.
+- ***Data Warehousing***:
+  > Hadoop can serve as a cost-effective data warehousing solution, allowing us to store and process vast amounts of historical data for business intelligence and reporting purposes.
+
+## What is Wordcount with Hadoop? 
+WordCount is a classic example of a simple but powerful application that showcases the capabilities of Hadoop's MapReduce programming model. The WordCount program counts the occurrences of each word in a given input dataset.
+
+Here's how WordCount works with Hadoop:
+
+1. **Map Phase:** In the Map phase, the input data is divided into chunks, and each chunk is processed independently by multiple map tasks running in parallel across the cluster. Each map task takes a portion of the input data and emits key-value pairs, where the key represents a word, and the value is typically set to 1.
+
+2. **Shuffle and Sort:** The output of the map tasks is then shuffled and sorted by Hadoop. This step ensures that all occurrences of the same word are grouped together and sorted by key.
+
+3. **Reduce Phase:** In the Reduce phase, the sorted output from the map tasks is passed to the reduce tasks. Each reduce task takes a group of key-value pairs and performs an aggregation operation, usually summing the values for each unique key (word).
+
+4. **Final Output:** The final output of the WordCount program is a list of words along with their respective counts.
+
+By leveraging Hadoop's parallel processing capabilities, WordCount can efficiently process large volumes of text data and provide insights into the frequency of words within the dataset. It is a fundamental example that demonstrates how Hadoop's MapReduce paradigm can be used for distributed data processing tasks.
